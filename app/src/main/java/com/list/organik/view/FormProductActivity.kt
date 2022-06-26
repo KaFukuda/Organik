@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.list.organik.R
+import com.list.organik.dao.ProductDao
 import com.list.organik.model.Product
 import java.math.BigDecimal
 
@@ -42,6 +43,10 @@ class FormProductActivity :
                 price = newPrice
             )
             Log.i("FormProduct", "onCreate: $newProduct")
+            val dao = ProductDao()
+            dao.add(newProduct)
+            Log.i("FormProduct", "onAdd: ${dao.getAllProducts()}")
+            finish()
         }
     }
 
