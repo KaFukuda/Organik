@@ -56,13 +56,17 @@
             app:layout_constraintTop_toBottomOf="@+id/description_form" />
 
         <Button
+            android:id="@+id/btn_save"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:text="Salvar"
             android:layout_margin="36dp"
-            android:text="Adicionar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/price_form"
+            app:layout_constraintVertical_bias="1"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
