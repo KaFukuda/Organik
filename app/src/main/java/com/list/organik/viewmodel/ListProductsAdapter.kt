@@ -11,8 +11,11 @@ import com.list.organik.model.Product
 
 class ListProductsAdapter(
     private val context : Context,
-    private val products : List<Product>
+    products : List<Product>
 ) : RecyclerView.Adapter<ListProductsAdapter.ViewHolder>() {
+
+    //aqui a gente copia a lista que vem de fora e pode altera-la aqui
+    private val products = products.toMutableList()
 
     //classe interna que só sera usada aqui
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -42,5 +45,10 @@ class ListProductsAdapter(
 
     //tamanho da lista
     override fun getItemCount(): Int = products.size
+    fun updateInfos(products: List<Product>) {
+        this.products.clear() //para nao ter dados duplicados
+        this.products.addAll(products) //adiciona as mudanças da mutableList
+        notifyDataSetChanged() //atualiza a mutableList
+    }
 
 }
